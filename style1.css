@@ -71,6 +71,17 @@ main, body > p {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+/* ===== Profielfoto op de whoami-pagina ===== */
+.profielfoto {
+    display: block;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 /* ===== Footer onderaan de pagina ===== */
 footer {
     background: var(--kleur-donker);
