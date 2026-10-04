@@ -21,16 +21,14 @@
     <main>
         <section>
             <h2>Mijn projecten</h2>
-
-            <article>
-                <h3>Project Marine Guardian</h3>
-                <p>In het Marine Guardian project heb ik met mijn project groep gewerkt aan een slimme prullenbak die met een puntensysteem het aantal plastic in onze wateren moet gaan verlagen. We hebben een prototype ontwikkeld die gepaard met nfc pasjes persoonlijke scores kon bijhouden aan de hand van ingeleverde plastic flesjes en blikjes. We hebben dit project met een 7 afgerond op onze opleiding. De kennis die hier voor gevraagd werd was vooral C# en SQL </p>
-            </article>
-
-            <article>
-                <h3>Projectnaam Hotel Simulator</h3>
-                <p>Ik heb samen met mijn projectgroep in mijn 2e semester van de HBO ICT opleiding een simulator gemaakt die een hotel gebaseerd op hele specifieke eisen van onze stakeholder kon simuleren. Het hotel functioneerde volledig met schoonmakers, evenementen zoals een brandalarm en een werkend check in en uit systeem. Dit project vroeg om kennis over java. </p>
-            </article>
+            <div id="filter-knoppen" role="group" aria-label="Filter projecten op taal">   
+                <button data-taal="Alle">Alle</button>
+                <button data-taal="C#">C#</button>
+                <button data-taal="Java">Java</button>
+                <button data-taal="JavaScript">JavaScript</button>
+                <button data-taal="HTML/CSS">HTML/CSS</button>
+            </div>
+            <div id="projecten-lijst"></div>      
         </section>
     </main>
 
@@ -38,6 +36,7 @@
      <p>Author: Jelmer van den Bos - 2026<br>
      <a href="mailto:jelmer.vandenbos2006@gmail.com">jelmer.vandenbos2006@gmail.com</a></p>
     </footer>
+     <script src="script.js"></script>
 
 </body>
 </html>
