@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,22 +23,29 @@
     <main>
         <section>
             <h2>Mijn projecten</h2>
-            <div id="filter-knoppen" role="group" aria-label="Filter projecten op taal">   
+            <div id="filter-knoppen" role="group" aria-label="Filter projecten op taal">
                 <button data-taal="Alle">Alle</button>
                 <button data-taal="C#">C#</button>
                 <button data-taal="Java">Java</button>
                 <button data-taal="JavaScript">JavaScript</button>
                 <button data-taal="HTML/CSS">HTML/CSS</button>
             </div>
-            <div id="projecten-lijst"></div>      
+            <div id="projecten-lijst"></div>
+        </section>
+        <section>
+            <h2>Mijn GitHub-repositories</h2>
+            <p id="repo-status" aria-live="polite"></p>
+            <ul id="repo-lijst"></ul>
         </section>
     </main>
 
     <footer>
-     <p>Author: Jelmer van den Bos - 2026<br>
-     <a href="mailto:jelmer.vandenbos2006@gmail.com">jelmer.vandenbos2006@gmail.com</a></p>
+        <p>Author: Jelmer van den Bos - 2026<br>
+            <a href="mailto:jelmer.vandenbos2006@gmail.com">jelmer.vandenbos2006@gmail.com</a>
+        </p>
     </footer>
-     <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>

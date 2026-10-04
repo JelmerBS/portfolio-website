@@ -142,9 +142,9 @@ function koppelFormulier() {
                 alleGeldig = false;
             }
         });
-        
+
         const status = document.querySelector("#form-status");
-        
+
         if (!alleGeldig) {
             status.textContent = "Er zijn fouten gevonden in het formulier, controleer de velden en probeer het opnieuw.";
             return;
@@ -156,7 +156,68 @@ function koppelFormulier() {
 
 }
 
+// ===== Functie: haal mijn repositories op bij de GitHub API =====
+async function haalReposOp() {
+    const response = await fetch("https://api.github.com/users/JelmerBS/repos");
 
+    if (!response.ok) {
+        throw new Error(`Status ${response.status}`);
+    }
+
+    return await response.json();
+}
+
+// ===== Functie: laad de repositories met laad- en foutstatus =====
+async function laadRepos() {
+    const status = document.querySelector("#repo-status");
+
+    if (!status) {
+        return;
+    }
+
+    status.textContent = "Repositories worden geladen...";
+
+    try {
+        const repos = await haalReposOp();
+        toonRepos(repos);
+        status.textContent = "";
+    } catch (error) {
+        status.textContent = "De repositories konden niet worden geladen. Probeer het later opnieuw.";
+    }
+}
+
+// ===== Functie: zet alle repos op de pagina =====
+function toonRepos(repos) {
+
+    const repoLijst = document.querySelector("#repo-lijst");
+
+    if (!repoLijst) {
+        return;
+    }
+
+    repoLijst.replaceChildren();
+
+    repos.forEach((repo) => {
+        const listItem = document.createElement("li");
+        const titel = document.createElement("h3");
+        const link = document.createElement("a");
+        const beschrijving = document.createElement("p");
+
+        link.textContent = repo.name;
+        link.href = repo.html_url;
+        beschrijving.textContent = repo.description || "Geen beschrijving";
+
+        titel.appendChild(link);
+        listItem.appendChild(titel);
+        listItem.appendChild(beschrijving);
+        repoLijst.appendChild(listItem);
+
+    });
+
+
+}
+
+laadRepos();
 
 koppelFormulier();
 
