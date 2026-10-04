@@ -44,13 +44,13 @@ function toonProjecten(lijstVanProjecten) {
     const projectenlijst = document.querySelector("#projecten-lijst");
 
     if (!projectenlijst) {
-        return; 
+        return;
     }
 
     projectenlijst.replaceChildren();
 
     lijstVanProjecten.forEach((project) => {
-        
+
         const artikel = document.createElement("article");
         const titel = document.createElement("h3");
         const tekst = document.createElement("p");
@@ -90,6 +90,75 @@ function koppelFilterKnoppen() {
         });
     });
 }
+
+// ===== Data: velden van het contactformulier =====.
+const velden = [
+    {
+        id: "naam",
+        boodschap: "Vul je naam in (minimaal 2 karakters)"
+    },
+    {
+        id: "email",
+        boodschap: "Voer een geldig e-mailadres in met een '@' en een domein (bijv. .com, .nl)"
+    },
+    {
+        id: "bericht",
+        boodschap: "Vul je bericht in (minimaal 10 karakters)"
+    }
+];
+
+// ===== Functie: controleer één formulierveld =====
+function valideerVeld(veld) {
+
+    const invoerveld = document.querySelector(`#${veld.id}`);
+    const foutmelding = document.querySelector(`#${veld.id}-error`);
+
+    const geldig = invoerveld.checkValidity();
+
+    invoerveld.setAttribute("aria-invalid", !geldig);
+
+    if (geldig) {
+        foutmelding.textContent = "";
+    } else {
+        foutmelding.textContent = veld.boodschap;
+    }
+
+    return geldig;
+}
+
+// ===== Functie: koppel submit-event aan het contactformulier =====
+function koppelFormulier() {
+    const formulier = document.querySelector("#contact-form");
+    if (!formulier) {
+        return;
+    }
+    formulier.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        let alleGeldig = true;
+
+        velden.forEach((veld) => {
+            if (!valideerVeld(veld)) {
+                alleGeldig = false;
+            }
+        });
+        
+        const status = document.querySelector("#form-status");
+        
+        if (!alleGeldig) {
+            status.textContent = "Er zijn fouten gevonden in het formulier, controleer de velden en probeer het opnieuw.";
+            return;
+        }
+        status.textContent = "Het formulier is succesvol ingediend. Ik neem zo snel mogelijk contact met je op. Bedankt!";
+        formulier.reset();
+
+    });
+
+}
+
+
+
+koppelFormulier();
 
 koppelFilterKnoppen();
 
