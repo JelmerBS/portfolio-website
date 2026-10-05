@@ -10,13 +10,13 @@ const projecten = [
         titel: "Hotel Simulator",
         beschrijving: "Ik heb samen met mijn projectgroep in mijn 2e semester van de HBO ICT opleiding een simulator gemaakt die een hotel gebaseerd op hele specifieke eisen van onze stakeholder kon simuleren. Het hotel functioneerde volledig met schoonmakers, evenementen zoals een brandalarm en een werkend check in en uit systeem. Dit project vroeg om kennis over java.",
         taal: "Java",
-        jaar: 2025
+        jaar: 2026
     },
     {
-        titel: "Dummy project 1",
-        beschrijving: "Vervang deze tekst door een eigen project.",
-        taal: "JavaScript",
-        jaar: 2026
+        titel: "Pygame Dungeon Slayer",
+        beschrijving: "Ik heb samen met mijn klasgenoot in mijn 1e semester van HBO Informatica een level based dungeon slayer gemaakt in pygame. de game is geinspireerd angry birds EPIC en heeft daar een aantal traits van. het spel had meerdere levels een kiesbare karakters met allemaal een verschillende speciale eigenschap, ook hadden we een turn based combat system gemaakt die choice based was gebaseerd op de tegenstander.",
+        taal: "Python",
+        jaar: 2024
     },
     {
         titel: "Dummy project 2",
